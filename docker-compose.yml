@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web-stream:
+    build: src
+    container_name: web-stream
+#    volumes:
+#      - ./src/html:/usr/local/nginx/html:ro
+    ports:
+      - "10.88.88.1:1935:1935"
+    networks:
+      - web
+networks:
+  web:
+    external:
+      name: web
+
