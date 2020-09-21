@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><style class="vjs-styles-dimensions">
+      .my_video_1-dimensions {
+        width: 720px;
+        height: 405px;
+      }
+
+      .my_video_1-dimensions.vjs-fluid {
+        padding-top: 56.25%;
+      }
+    </style>
+<meta charset="utf-8">
+<title>Watching shows together</title>
+
+  <!--
+  Uses the latest versions of video.js and videojs-http-streaming.
+  -->
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+
+<style>
+:root {
+  --main-bg-color: #1E1E24;
+  --header-bg-color: #EF767A;
+  --footer-bg-color: #5A7684;
+  --text-color: #E0EFDA;
+  --secondary-color: #FFBA08;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  margin: 0px;
+  padding: 0px;
+  min-height: 100%;
+  height: 100%;
+}
+
+main a {
+  color: var(--header-bg-color);
+}
+
+header {
+  background-color: var(--header-bg-color);
+  padding: 5px;
+  height: 100px;
+}
+
+header h1 {
+  font-family: arial; !important
+  font-size: 40pt;
+  color: var(--text-color);
+//  margin: auto;
+//  width: 50%;
+}
+
+footer {
+  padding: 5px;
+//  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color: var(--footer-bg-color);
+}
+
+footer p {
+//  margin: auto;
+//  width: 50%;
+  font-family: arial;
+  color: var(--text-color);
+}
+
+main {
+  padding: 15px;
+  min-height: 100%;
+  height: auto !important;
+}
+
+main p {
+//  margin: auto;
+//  width: 50%;
+  font-family: arial;
+  color: var(--secondary-color);
+}
+
+#video-container {
+  margin: auto;
+  width: 50%;
+}
+</style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Watching shows together</h1>
+  </header>
+  <main>
+    <video-js id="my_video_1" class="vjs-default-skin" controls preload="auto" width="720">
+      <source id="SERVER" src="" type="application/x-mpegURL" />
+    </video-js>
+
+    <script src="https://unpkg.com/video.js/dist/video.js">
+    </script>
+  
+    <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js">
+    </script>
+
+    <script>
+      document.getElementById("SERVER").src="https://"+window.location.hostname+"/live/hls/watching-shows-together.m3u8"
+    </script>
+
+    <script>
+      var player = videojs('my_video_1');
+    </script>
+
+  </main>
+  <footer>
+    <p>For personal use only!</p>
+  </footer>
+</body>
+</html>
+
